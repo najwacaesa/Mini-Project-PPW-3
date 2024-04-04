@@ -143,7 +143,7 @@ if(isset($_POST['update_update_btn'])){
                 </tbody>
             </table>
             <div class="checkout-btn">
-                <a href="checkout.php" class="btn <?= ($grand_total > 1)?'':'disabled'; ?>">Proceed to Checkout</a>
+                <a href="index.php?page=Checkout" class="btn <?= ($grand_total > 1)?'':'disabled'; ?>">Proceed to Checkout</a>
             </div>
         </section>
     </div>

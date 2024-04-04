@@ -54,7 +54,7 @@ if(isset($_POST['login'])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login</title>
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css"> 
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
@@ -68,7 +68,6 @@ if(isset($_POST['login'])){
 						<div class="booking-bg">
 							<div class="form-header">
 								<h2>LOGIN</h2>
-								<p>Nikmati perjalanan kuliner yang tak terlupakan dengan mereservasi di Seoul Flavor. Jadikan momen bersama keluarga, teman, atau rekan bisnis Anda lebih istimewa dengan hidangan-hidangan lezat kami yang dipenuhi dengan aroma dan rasa Korea yang autentik.</p>
 							</div>
 						</div>
 						<form action="" method="POST">
@@ -86,6 +85,7 @@ if(isset($_POST['login'])){
 							<div class="form-btn">
 								<button name="login" class="submit-btn">Login</button>
 							</div>
+                            <h5 style="text-align: center; margin-top:1rem;">Belum punya akun? <span><a href="../view/register.php" style="text-decoration: none; color: #f3c93e; font-weight:700;">Buat akun</a></span></h5>
 						</form>
 					</div>
 				</div>

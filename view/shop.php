@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Shop</title>
     <link rel="stylesheet" href="../Beauty_E-Commerce/assets/css/bootstrap.min.css"> 
     <link rel="stylesheet" href="../Beauty_E-Commerce/assets/css/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
@@ -45,18 +45,6 @@ if(isset($_POST['add_to_cart'])){
 }
 
 ?>
-
-
-
-   <ul class="nav nav-tabs m-5">
-      <li class="nav-item">
-         <a class="nav-link active" aria-current="page" href="#">Active</a>
-      </li>
-      <li class="nav-item">
-         <a class="nav-link" href="#">Link</a>
-      </li>
-   </ul>
-
    <section class="product_section layout_padding">
          <div class="container">
             <div class="heading_container heading_center">

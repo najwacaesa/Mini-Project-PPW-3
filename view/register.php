@@ -43,9 +43,7 @@ if(isset($_POST['regis'])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="http://fonts.googleapis.com/css?family=Playfair+Display:900" rel="stylesheet" type="text/css" />
-	<link href="http://fonts.googleapis.com/css?family=Alice:400,700" rel="stylesheet" type="text/css" />
+    <title>Register</title>
     <link type="text/css" rel="stylesheet" href="../assets/css/bootstrap.min.css" />
 	<!-- Bootstrap -->
 	<link type="text/css" rel="stylesheet" href="../assets/css/style.css" />
@@ -58,8 +56,7 @@ if(isset($_POST['regis'])){
 					<div class="booking-form">
 						<div class="booking-bg">
 							<div class="form-header">
-								<h2>Make your reservation</h2>
-								<p>Nikmati perjalanan kuliner yang tak terlupakan dengan mereservasi di Seoul Flavor. Jadikan momen bersama keluarga, teman, atau rekan bisnis Anda lebih istimewa dengan hidangan-hidangan lezat kami yang dipenuhi dengan aroma dan rasa Korea yang autentik.</p>
+								<h2>Make Your Account Now</h2>
 							</div>
 						</div>
 						<form action="" method="POST">
@@ -102,11 +99,10 @@ if(isset($_POST['regis'])){
 								    <input name="password" type="password" class="form-control" id="exampleFormControlInput1" placeholder="Password" maxlength = "50" minlength="5" required>
                                 </div>
 							</div>
-
-
 							<div class="form-btn">
 								<button name="regis" class="submit-btn">Register Now</button>
 							</div>
+                            <h5 style="text-align: center; margin-top:1rem;">Sudah punya akun? <span><a href="../view/login.php" style="text-decoration: none; color: #f3c93e; font-weight:700;">Login</a></span></h5>
 						</form>
 					</div>
 				</div>
