@@ -71,7 +71,7 @@ if(isset($_POST['add_to_cart'])){
       <div class="container">
          <div class="heading_container heading_center">
             <h2>
-               Our <span>products</span>
+               Most <span>Popular</span>
             </h2>
          </div>
          <div class="row">

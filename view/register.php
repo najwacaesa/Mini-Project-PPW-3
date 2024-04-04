@@ -11,24 +11,16 @@ if(isset($_POST['regis'])){
     $password = filter_input(INPUT_POST, 'password', FILTER_UNSAFE_RAW);
     $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
 
-
     // menyiapkan query
     $sql = "INSERT INTO user (first_name, last_name, username, email, gender, password) 
-            VALUES (:first_name, :last_name, :username,  :email, :gender, :password)";
+            VALUES (?, ?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($sql);
 
     // bind parameter ke query
-    $params = array(
-        ":first_name" => $first_name,
-        ":last_name" => $last_name,
-        ":username" => $username,
-        ":email" => $email,
-        ":gender" => $gender,
-        ":password" => $password
-    );
+    $stmt->bind_param("ssssss", $first_name, $last_name, $username, $email, $gender, $password);
 
     // eksekusi query untuk menyimpan ke database
-    $saved = $stmt->execute($params);
+    $saved = $stmt->execute();
 
     // jika query simpan berhasil, maka user sudah terdaftar
     // maka alihkan ke halaman login
@@ -38,12 +30,15 @@ if(isset($_POST['regis'])){
 ?>
 
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
+    <title>Document</title>
+    <link href="http://fonts.googleapis.com/css?family=Playfair+Display:900" rel="stylesheet" type="text/css" />
+	<link href="http://fonts.googleapis.com/css?family=Alice:400,700" rel="stylesheet" type="text/css" />
     <link type="text/css" rel="stylesheet" href="../assets/css/bootstrap.min.css" />
 	<!-- Bootstrap -->
 	<link type="text/css" rel="stylesheet" href="../assets/css/style.css" />
@@ -56,7 +51,7 @@ if(isset($_POST['regis'])){
 					<div class="booking-form">
 						<div class="booking-bg">
 							<div class="form-header">
-								<h2>Make Your Account Now</h2>
+								<h2>Make your account now</h2>
 							</div>
 						</div>
 						<form action="" method="POST">
@@ -99,6 +94,8 @@ if(isset($_POST['regis'])){
 								    <input name="password" type="password" class="form-control" id="exampleFormControlInput1" placeholder="Password" maxlength = "50" minlength="5" required>
                                 </div>
 							</div>
+                            
+
 							<div class="form-btn">
 								<button name="regis" class="submit-btn">Register Now</button>
 							</div>

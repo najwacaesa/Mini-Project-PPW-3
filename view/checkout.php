@@ -26,18 +26,21 @@ if(isset($_POST['order_btn'])){
    $price_total = 0;
    $product_name = [];
 
+   $total_product = ''; // Inisialisasi variabel total_product
+
    if(mysqli_num_rows($cart_query) > 0){
-      while($product_item = mysqli_fetch_assoc($cart_query)){
-         $product_name[] = $product_item['nama'] .' ('. $product_item['jumlah'] .') ';
-         $product_price = $product_item['harga'] * $product_item['jumlah'];
-         $price_total += $product_price;
-      }
+       while($product_item = mysqli_fetch_assoc($cart_query)){
+           // Format nama produk dengan jumlah
+           $product_name[] = $product_item['nama'] .' ('. $product_item['jumlah'] .') ';
+           $product_price = $product_item['harga'] * $product_item['jumlah'];
+           $price_total += $product_price;
+       }
+   
+       // Gabungkan semua nama produk menjadi satu string
+       $total_product = implode(', ',$product_name);
    }
-
-   $total_product = implode(', ',$product_name);
-
    // Menyiapkan query untuk memasukkan data ke dalam tabel pesanan
-   $detail_query = mysqli_query($conn, "INSERT INTO `order` (nama, nomor, email, metode, jalan, kota, provinsi, negara, kode_pin, jumlah_produk, total_harga) VALUES('$nama','$nomor','$email','$metode','$jalan','$kota','$provinsi','$negara','$kode_pin','$total_product','$price_total')");
+   $detail_query = mysqli_query($conn, "INSERT INTO `order` (nama, nomor, email, metode, jalan, kota, provinsi, negara, kode_pin, total_harga) VALUES('$nama','$nomor','$email','$metode','$jalan','$kota','$provinsi','$negara','$kode_pin','$price_total')");
 
    if($detail_query){
       // Mengosongkan tabel cart setelah berhasil checkout
@@ -117,8 +120,8 @@ if(isset($_POST['order_btn'])){
 
       <div class="flex">
          <div class="inputBox">
-            <span>your name</span>
-            <input type="text" placeholder="enter your name" name="nama" required>
+            <span>your full name</span>
+            <input type="text" placeholder="enter your full name" name="nama" required>
          </div>
          <div class="inputBox">
             <span>your number</span>
@@ -133,29 +136,45 @@ if(isset($_POST['order_btn'])){
             <select name="metode">
                <option value="cash on delivery" selected>cash on delivery</option>
                <option value="credit card">credit card</option>
-               <option value="paypal">paypal</option>
             </select>
          </div>
          <div class="inputBox">
-            <span>address line 2</span>
-            <input type="text" placeholder="e.g. street name" name="kota" required>
+            <span>street/span>
+            <input type="text" placeholder="e.g. street name" name="jalan" required>
          </div>
          <div class="inputBox">
             <span>city</span>
-            <input type="text" placeholder="e.g. Mumbai" name="provinsi" required>
+            <select name="metode">
+               <option value="Samarinda" selected>Samarinda</option>
+               <option value="Balikpapan">Balikpapan</option>
+               <option value="Tenggarong">Tenggarong</option>
+               <option value="Bandung">Bandung</option>
+               <option value="Bontang">Bontang</option>
+               <option value="Jakarta">Jakarta</option>
+            </select>
          </div>
          <div class="inputBox">
             <span>state</span>
-            <input type="text" placeholder="e.g. Maharashtra" name="negara" required>
+            <select name="metode">
+               <option value="Kaltim" selected>Kaltim</option>
+               <option value="Jaktim">Jaktim</option>
+               <option value="Jabar">Jabar</option>
+               <option value="Jakbar">Jakbar</option>
+               <option value="Jaksel">Jaksel</option>
+               <option value="Jakpus">Jakpus</option>
+            </select>
          </div>
          <div class="inputBox">
             <span>country</span>
-            <input type="text" placeholder="e.g. India" name="kode_pin" required>
+            <select name="metode">
+               <option value="Indonesia" selected>Indonesia</option>
+            </select>
          </div>
          <div class="inputBox">
             <span>pin code</span>
-            <input type="text" placeholder="e.g. 123456" name="pin_code" required>
+            <input type="text" placeholder="e.g. 123456" name="kode_pin" required>
          </div>
+
       </div>
       <input type="submit" value="order now" name="order_btn" class="btn">
    </form>
