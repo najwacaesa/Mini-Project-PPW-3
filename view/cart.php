@@ -1,6 +1,6 @@
 <?php
 // Include your connection file
-require 'C:/xampp/htdocs/Beauty_E-Commerce/koneksi/koneksi.php';
+require 'C:/xampp/htdocs/Glowy/koneksi/koneksi.php';
 
 // Delete item from cart
 if (isset($_GET['remove'])) {
@@ -28,7 +28,7 @@ if (isset($_GET['delete_all'])) {
     $delete_all_query = mysqli_query($conn, "DELETE FROM cart");
     if ($delete_all_query) {
         echo "<script>alert('All items successfully deleted from cart.');</script>";
-        header('Location: index.php?page=cart'); // Redirect back to cart page after deletion
+        header('Location: ../index.php?page=cart'); // Redirect back to cart page after deletion
         exit(); // Exit after redirect
     } else {
         // Handle deletion failure
@@ -141,7 +141,7 @@ if (isset($_POST['update_update_btn'])) {
                         <td><a href="index.php?page=Shop" class="option-btn" style="margin-top: 0;">Continue Shopping</a></td>
                         <td colspan="3">Grand Total</td>
                         <td>Rp<?php echo $grand_total; ?></td>
-                        <td><a href="?delete_all" onclick="return confirm('Are you sure you want to delete all?');" class="delete-btn"> <i class="fas fa-trash"></i> Delete All </a></td>
+                        <td><a href="view/cart.php?delete_all" onclick="return confirm('Are you sure you want to delete all?');" class="delete-btn"> <i class="fas fa-trash"></i> Delete All </a></td>
                     </tr>
                 </tbody>
             </table>

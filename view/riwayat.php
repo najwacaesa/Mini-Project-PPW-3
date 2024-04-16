@@ -1,6 +1,6 @@
 <?php
 // Lakukan koneksi ke database
-require '../Beauty_E-Commerce/koneksi/koneksi.php';
+require '../Glowy/koneksi/koneksi.php';
 
 // Pastikan variabel $conn sudah terdefinisi dan merupakan objek koneksi MySQLi
 if (!$conn) {

@@ -1,9 +1,10 @@
 <?php 
+session_start();
 require_once("../koneksi/koneksi.php");
 
 if(isset($_POST['login'])){
-    $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
-    $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
+    $username = htmlspecialchars(filter_input(INPUT_POST, 'username'));
+    $password = htmlspecialchars(filter_input(INPUT_POST, 'password'));
 
     // Buat query SQL
     $sql = "SELECT * FROM user WHERE username=? AND password=?";
@@ -31,18 +32,22 @@ if(isset($_POST['login'])){
 
     // Jika user terdaftar
     if($user){
-        session_start();
+       
         $_SESSION["user"] = $user;
-        // Login sukses, alihkan ke halaman timeline
-        header("Location: ../index.php?page=Home");
+        
+        // Redirect ke halaman sesuai peran
+        if ($user['peran'] == 'User') {
+            header("Location: ../index.php?page=Home");
+        } elseif ($user['peran'] == 'Admin') {
+            header("Location: admin/dashboard.php");
+        } elseif ($user['peran'] == 'Super') {
+            header("Location: admin/dashboard.php");
+        }
         exit; // Hentikan eksekusi script setelah redirect
     } else {
-        // Password salah
+        // Password salah atau user tidak terdaftar
         echo "<script>alert('Username atau password Anda salah. Silakan coba lagi!')</script>";
     }
-} else {
-    // User tidak ditemukan
-    echo "<script>alert('Username atau email tidak terdaftar. Silakan coba lagi!')</script>";
 }
 
 ?>

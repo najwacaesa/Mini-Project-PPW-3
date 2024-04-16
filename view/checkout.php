@@ -1,5 +1,5 @@
 <?php
-@include '../Beauty_E-Commerce/koneksi/koneksi.php';
+@include '../Glowy/koneksi/koneksi.php';
 
 // Pastikan variabel $conn sudah terdefinisi dan merupakan objek koneksi MySQLi
 if (!$conn) {
