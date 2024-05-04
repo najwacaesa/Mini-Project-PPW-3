@@ -1,5 +1,5 @@
 <?php
-require 'C:/xampp/htdocs/Beauty_E-Commerce/koneksi/koneksi.php';
+require 'C:/xampp/htdocs/Glowy/koneksi/koneksi.php';
 
 // Lakukan koneksi ke database
 

@@ -49,7 +49,6 @@ if(isset($_POST['login'])){
         echo "<script>alert('Username atau password Anda salah. Silakan coba lagi!')</script>";
     }
 }
-
 ?>
 
 
